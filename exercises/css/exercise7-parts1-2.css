@@ -1,0 +1,34 @@
+body {
+    background-color: #d2c6b6;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+}
+
+main {
+    border: 3px solid red ;
+}
+
+article {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 1.3rem;
+    margin: .5rem;
+    margin-bottom: 1.5rem;
+    border-radius: .8rem;
+    }
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
