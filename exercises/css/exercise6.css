@@ -66,3 +66,15 @@ a:hover {
 a:active {
     color: #9D001D;
 }
+
+figure {
+    float: right;
+    margin: 1rem;
+    max-width: 100%;
+}
+img {
+    border: 5px #590909 solid;
+}
+figcaption {
+    text-align: center;
+}
