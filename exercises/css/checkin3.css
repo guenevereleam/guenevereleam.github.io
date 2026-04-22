@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+}
+
+.row1 {
+    background: navy;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    height: 10vh;
+}
+
+.row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 30vh;
+}
+
+.row3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 30vh;
+}
+
+
+.blackbox {
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+}
+
+.bluebox {
+    background: lightblue;
+    padding: 10px;
+    min-height: 200px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.smallimage {
+    width: 200px;
+    height: auto;
+    float: right;
+    margin-left: 10px;
+}
