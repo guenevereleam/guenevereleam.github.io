@@ -2,19 +2,34 @@ body {
     text-align: center;
 }
 
-.home-buttons {
+.buttons {
     display: flex;
     justify-content: center;
     gap: 150px;
     margin: 50px;
 }
 
-.home-buttons button {
+.buttons .home-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 350px;
     height: 350px;
     font-size: 4rem;
+
     border: 5px solid black;
     border-radius: 12px;
+
+    text-decoration: none;
+    color: black;
+    background-color: lightgray;
+
+    cursor: pointer;
+}
+
+.buttons .home-btn:hover {
+    background-color: darkgray;
 }
 
 nav ul {
