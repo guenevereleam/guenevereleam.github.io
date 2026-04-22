@@ -1,0 +1,46 @@
+h2 {
+    text-align: center;
+    background-color: aliceblue;
+    padding: 12px;
+    margin: 0;
+}
+
+nav li {
+    list-style-type: none;
+    background-color: black;
+    margin: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: lightgray;
+    padding: 1.5rem;
+}
+
+nav a:hover {
+    color:palegoldenrod;
+    background-color: black;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+    padding: 25px;
+    margin: 0;
+}
+
+footer {
+    background-color: black;
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+    min-height: 60vh;
+}
+
+h1 {
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+}
