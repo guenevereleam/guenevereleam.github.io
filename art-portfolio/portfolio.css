@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    background-color: white;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
+
+    margin: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 30px;
+    border-radius: 12px;
+}
+
+/* Clickable page boxes */
+.nav-box {
+    color: white;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);
+
+    width: 200px;
+    height: 80px;
+    border-radius: 8px;
+    box-sizing: border-box;    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    text-decoration: none;
+    font-size: 1.5rem;
+    
+}
+
+/* Page select - hover */
+.nav-box:hover {
+    transform: translateY(-6px) scale(1.02);
+    opacity: 0.85;
+}
+
+/* Page select - click */
+.nav-box:active {
+    transform: translateY(+4px) scale(.98);;
+}
+
+/* ================
+   PAGE BACKGROUNDS
+   ================ */
+
+body.home {
+    background-color: #fcecec;
+}
+
+body.digitalart {
+    background-color: #fef7e9;
+}
+
+body.paintings {
+    background-color: #e6f2e6;
+}
+
+body.miniatures {
+    background-color: #ecffff;
+}
+
+body.cosplays {
+    background-color: #f3eaff;
+}
+
+/* =============
+   BUTTON COLORS
+   ============= */
+
+.nav-box.home-btn {
+    background-color: #D76666;
+}
+
+.nav-box.digitalart-btn {
+    background-color: #dba554;
+}
+
+.nav-box.paintings-btn {
+    background-color: #519c51;
+}
+
+.nav-box.miniatures-btn {
+    background-color: #3CA2A6;
+}
+
+.nav-box.cosplays-btn {
+    background-color: #965fe3;
+}
+
+/* ACTIVE button effect */
+.nav-box.active {
+    font-weight: bold;
+    transform: translateY(-2px) scale(1.05);
+}
+
+.nav-box.home-btn.active {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #ab3434;
+}
+
+.nav-box.digitalart-btn.active {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #a07330;
+}
+
+.nav-box.paintings-btn.active {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #1a691a;
+}
+
+.nav-box.miniatures-btn.active {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #20696b;
+}
+
+.nav-box.cosplays-btn.active {
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #6838aa;
+}
+
+.top {
+    display: inline-block;
+
+    background-color: white;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+
+    width: 60%;
+
+    margin: 20px;
+    padding: 30px;
+}
