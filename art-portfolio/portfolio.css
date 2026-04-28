@@ -1,58 +1,77 @@
+/*================
+  BASIC PAGE SETUP
+  ================*/
+
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
+
+/*==============
+  NAV BAR LAYOUT
+  ==============*/
+
 .navbar {
     display: flex;
-    flex-wrap: wrap;
-
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
 
     background-color: white;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
-
-    margin: 20px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    gap: 30px;
     border-radius: 12px;
+
+    margin: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-/* Clickable page boxes */
+
+/*===========
+  NAV BUTTONS
+  ===========*/
+
 .nav-box {
-    color: white;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);
-
-    width: 200px;
-    height: 80px;
-    border-radius: 8px;
-    box-sizing: border-box;    
-
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
+    width: 200px;
+    height: 80px;
+    box-sizing: border-box;
+
+    color: white;
     text-decoration: none;
     font-size: 1.5rem;
-    
+
+    border-radius: 8px;
+    border: 7px solid transparent;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);
 }
 
-/* Page select - hover */
+/* nav button hover */
 .nav-box:hover {
     transform: translateY(-6px) scale(1.02);
     opacity: 0.85;
 }
 
-/* Page select - click */
+/* nav button click */
 .nav-box:active {
-    transform: translateY(+4px) scale(.98);;
+    transform: translateY(4px) scale(0.98);
 }
 
-/* ================
-   PAGE BACKGROUNDS
-   ================ */
+/* selected nav button */
+.nav-box.active {
+    font-weight: bold;
+    transform: translateY(-2px) scale(1.05);
+}
+
+
+/*======================
+  PAGE BACKGROUND COLORS
+  ======================*/
 
 body.home {
     background-color: #fcecec;
@@ -70,13 +89,14 @@ body.miniatures {
     background-color: #ecffff;
 }
 
-body.cosplays {
+body.cosplay {
     background-color: #f3eaff;
 }
 
-/* =============
-   BUTTON COLORS
-   ============= */
+
+/*=================
+  NAV BUTTON COLORS
+  =================*/
 
 .nav-box.home-btn {
     background-color: #D76666;
@@ -94,45 +114,318 @@ body.cosplays {
     background-color: #3CA2A6;
 }
 
-.nav-box.cosplays-btn {
+.nav-box.cosplay-btn {
     background-color: #965fe3;
 }
 
-/* ACTIVE button effect */
-.nav-box.active {
-    font-weight: bold;
-    transform: translateY(-2px) scale(1.05);
-}
+
+/*==================================
+  SELECTED NAV BUTTON OUTLINE COLORS
+  ==================================*/
 
 .nav-box.home-btn.active {
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #ab3434;
+    border-color: #b72b42;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.digitalart-btn.active {
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #a07330;
+    border-color: #a07330;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.paintings-btn.active {
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #1a691a;
+    border-color: #1a691a;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.miniatures-btn.active {
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #20696b;
+    border-color: #20696b;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-box.cosplays-btn.active {
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3), 0 0 0 7px #6838aa;
+.nav-box.cosplay-btn.active {
+    border-color: #6838aa;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.top {
-    display: inline-block;
+
+/*=======================
+  MAIN CONTENT CONTAINERS
+  =======================*/
+
+/* both full and row boxes have same margin settings*/
+.full,
+.row {
+    width: 85%;
+    margin: 30px auto;
+    box-sizing: border-box;
+}
+
+/* a full-width content box */
+.full {
+    background-color: white;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+/* a row of smaller boxes */
+.row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* individual small box inside row */
+.small-box {
+    flex: 1 1 300px;
+    padding: 40px;
+    box-sizing: border-box;
 
     background-color: white;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+}
 
-    width: 60%;
 
-    margin: 20px;
-    padding: 30px;
+/*===========
+  TEXT SIZING
+  ===========*/
+
+.big-text,
+figcaption {
+    font-size: 1.3em;
+}
+
+
+/*=====================
+  DEFAULT IMAGE STYLING
+  =====================*/
+
+img {
+    border: 8px solid transparent;
+    border-radius: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/*=================================
+  PAGE-SPECIFIC IMAGE BORDER COLORS
+  ================================= */
+
+body.home img {
+    border-color: #b72b42;
+}
+
+body.digitalart img {
+    border-color: #a07330;
+}
+
+body.paintings img {
+    border-color: #1a691a;
+}
+
+body.miniatures img {
+    border-color: #20696b;
+}
+
+body.cosplay img {
+    border-color: #6838aa;
+}
+
+
+/*========================
+  STANDARD WRAPPED FIGURES
+  ======================== */
+
+/* figure in a full box */
+.full figure {
+    float: right;
+    width: 30%;
+    margin: 0 0 10px 20px;
+}
+
+/* figure in a small box*/
+.row figure {
+    float: right;
+    width: 50%;
+    margin: 0 0 10px 20px;
+}
+
+
+/*==========
+  IMAGE ROWS
+  ==========*/
+
+/* horizontal row of multiple images */
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+/* remove figure wrapping inside image rows */
+.image-row figure {
+    float: none;
+    width: auto;
+    margin: 0;
+    flex: 0 0 auto;
+}
+
+/* special image sizing inside image rows */
+.image-row figure img {
+    width: auto;
+    height: 300px;
+    max-width: none;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* allow captions under images in image rows */
+.image-row figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/*==================
+  IMAGE SIZE OPTIONS
+  ==================*/
+
+/* (centered) bigger image */
+figure.bigger-image {
+    float: none;
+    width: 80%;
+    margin: 20px auto 0 auto;
+}
+
+figure.bigger-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* (centered) full-width image */
+figure.fullwidth-image {
+    float: none;
+    width: 100%;
+    margin: 20px auto 0 auto;
+}
+
+figure.fullwidth-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* bigger image(s) within an image row*/
+.large-images figure img {
+    height: 450px;
+}
+/*==========================
+  SIDE-BY-SIDE IMAGE LAYOUT
+  ==========================*/
+
+.side-image-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.side-image-box figure {
+    float: none;
+    width: 25%;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.side-image-box .text-content {
+    flex: 1;
+}
+
+/*==================
+  BACK TO TOP BUTTON
+  ==================*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+.back-to-top {
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+
+    color: white;
+    text-decoration: none;
+    font-size: 3rem;
+
+    border-radius: 8px;
+    border: 7px solid transparent;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* hover */
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.02);
+    opacity: 0.85;
+}
+
+/* click */
+.back-to-top:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+
+/*=============
+  BUTTON COLORS
+  =============*/
+
+body.home .back-to-top {
+    background-color: #f1a5b4;
+    border-color: #e99aaa;
+    color: #df3f5a;
+}
+
+body.digitalart .back-to-top {
+    background-color: #fbce8a;
+    border-color: #edc07d;
+    color: #d18c25;
+}
+
+body.paintings .back-to-top {
+    background-color: #9de19d;
+    border-color: #90d890;
+    color: #44ad44;
+}
+
+body.miniatures .back-to-top {
+    background-color: #8edddf;
+    border-color: #84d5d7;
+    color: #34acb0;
+}
+
+body.cosplay .back-to-top {
+    background-color: #c7a7f5;
+    border-color: #bc99eb;
+    color: #9258e2;
 }
