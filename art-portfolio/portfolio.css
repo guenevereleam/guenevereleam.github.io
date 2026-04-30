@@ -5,7 +5,20 @@
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+}
+
+h1, h2, .big-text, .centered-text, figcaption {
     text-align: center;
+}
+
+/*===========
+  TEXT SIZING
+  ===========*/
+
+.big-text,
+figcaption {
+    font-size: 1.3em;
 }
 
 
@@ -188,16 +201,6 @@ body.cosplay {
 }
 
 
-/*===========
-  TEXT SIZING
-  ===========*/
-
-.big-text,
-figcaption {
-    font-size: 1.3em;
-}
-
-
 /*=====================
   DEFAULT IMAGE STYLING
   =====================*/
@@ -309,9 +312,12 @@ figure.bigger-image {
 }
 
 figure.bigger-image img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: 100vh;
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 
 /* (centered) full-width image */
@@ -322,23 +328,27 @@ figure.fullwidth-image {
 }
 
 figure.fullwidth-image img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    max-height: 100vh;
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 
 
 /* bigger image(s) within an image row*/
 .large-images figure img {
     height: 450px;
-}
-/*==========================
+
+}/*========================
   SIDE-BY-SIDE IMAGE LAYOUT
-  ==========================*/
+  =========================*/
 
 .side-image-box {
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -351,6 +361,11 @@ figure.fullwidth-image img {
 
 .side-image-box .text-content {
     flex: 1;
+}
+
+/* bigger image in side-by-side layout */
+.side-image-box.large-side-image figure {
+    width: 45%;
 }
 
 /*==================
@@ -396,14 +411,14 @@ html {
 }
 
 
-/*=============
-  BUTTON COLORS
-  =============*/
+/*==================
+  BACK TO TOP COLORS
+  ==================*/
 
 body.home .back-to-top {
     background-color: #f1a5b4;
     border-color: #e99aaa;
-    color: #df3f5a;
+    color: #cb445a;
 }
 
 body.digitalart .back-to-top {
