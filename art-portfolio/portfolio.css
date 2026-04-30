@@ -112,23 +112,23 @@ body.cosplay {
   =================*/
 
 .nav-box.home-btn {
-    background-color: #D76666;
+    background-color: #dc5959;
 }
 
 .nav-box.digitalart-btn {
-    background-color: #dba554;
+    background-color: #c2892f;
 }
 
 .nav-box.paintings-btn {
-    background-color: #519c51;
+    background-color: #469b46;
 }
 
 .nav-box.miniatures-btn {
-    background-color: #3CA2A6;
+    background-color: #23a6ab;
 }
 
 .nav-box.cosplay-btn {
-    background-color: #965fe3;
+    background-color: #8c4bd7;
 }
 
 
@@ -137,27 +137,27 @@ body.cosplay {
   ==================================*/
 
 .nav-box.home-btn.active {
-    border-color: #b72b42;
+    border-color: #aa1e36;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.digitalart-btn.active {
-    border-color: #a07330;
+    border-color: #b67309;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.paintings-btn.active {
-    border-color: #1a691a;
+    border-color: #165f16;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.miniatures-btn.active {
-    border-color: #20696b;
+    border-color: #19595b;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.cosplay-btn.active {
-    border-color: #6838aa;
+    border-color: #6626ae;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -418,29 +418,29 @@ html {
 body.home .back-to-top {
     background-color: #f1a5b4;
     border-color: #e99aaa;
-    color: #cb445a;
+    color: #a74152;
 }
 
 body.digitalart .back-to-top {
     background-color: #fbce8a;
     border-color: #edc07d;
-    color: #d18c25;
+    color: #996311;
 }
 
 body.paintings .back-to-top {
     background-color: #9de19d;
     border-color: #90d890;
-    color: #44ad44;
+    color: #348534;
 }
 
 body.miniatures .back-to-top {
     background-color: #8edddf;
     border-color: #84d5d7;
-    color: #34acb0;
+    color: #1B8082;
 }
 
 body.cosplay .back-to-top {
     background-color: #c7a7f5;
     border-color: #bc99eb;
-    color: #9258e2;
+    color: #7648B8;
 }
