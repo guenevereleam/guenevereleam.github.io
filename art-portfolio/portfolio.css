@@ -29,16 +29,17 @@ figcaption {
 .navbar {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 35px;
 
     background-color: white;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 
     margin: 0;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 header {
@@ -47,6 +48,27 @@ header {
     z-index: 999;
 
     padding: 25px;
+}
+
+/* divider after home button */
+.nav-dots, 
+.nav-divider {
+    background-color: rgb(220, 220, 220);
+    border-radius: 999px;
+}
+
+.nav-dots {
+    width: 10px;
+    height: 10px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.nav-divider {
+    width: 10px;
+    height: 70px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 /*===========
@@ -94,7 +116,7 @@ header {
   ======================*/
 
 body.home {
-    background-color: #fcecec;
+    background-color: #fcecf4;
 }
 
 body.digitalart {
@@ -106,7 +128,7 @@ body.paintings {
 }
 
 body.miniatures {
-    background-color: #ecffff;
+    background-color: #e6f4f4;
 }
 
 body.cosplay {
@@ -116,7 +138,7 @@ body.cosplay {
 /* Background below Nav bar */
 
 body.home header {
-    background-color: #fcecec;
+    background-color: #fcecf4;
 }
 
 body.digitalart header {
@@ -128,7 +150,7 @@ body.paintings header {
 }
 
 body.miniatures header {
-    background-color: #ecffff;
+    background-color: #e6f4f4;
 }
 
 body.cosplay header {
@@ -146,7 +168,7 @@ header + .year-buttons + .full {
   =================*/
 
 .nav-box.home-btn {
-    background-color: #dc5959;
+    background-color: #dc5971;
 }
 
 .nav-box.digitalart-btn {
@@ -171,27 +193,27 @@ header + .year-buttons + .full {
   ==================================*/
 
 .nav-box.home-btn.active {
-    border-color: #aa1e36;
+    border-color: #bf3c54;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.digitalart-btn.active {
-    border-color: #b67309;
+    border-color: #a86a05;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.paintings-btn.active {
-    border-color: #165f16;
+    border-color: #186318;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.miniatures-btn.active {
-    border-color: #19595b;
+    border-color: #217477;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .nav-box.cosplay-btn.active {
-    border-color: #6626ae;
+    border-color: #6023a5;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -200,9 +222,11 @@ header + .year-buttons + .full {
   MAIN CONTENT CONTAINERS
   =======================*/
 
-/* both full and row boxes have same margin settings*/
+/* both full and row (and hero) boxes have same margin settings*/
 .full,
-.row {
+.row,
+.hero
+{
     width: 85%;
     margin: 30px auto;
     box-sizing: border-box;
@@ -248,29 +272,35 @@ img {
     display: block;
 }
 
-/*=================================
-  PAGE-SPECIFIC IMAGE BORDER COLORS
-  ================================= */
+/*==========================================
+  PAGE-SPECIFIC IMAGE BORDER COLORS + SHADOW
+  ========================================== */
 
 body.home img {
-    border-color: #b72b42;
+    border-color: #bf3c54;
+    box-shadow: 3px 3px 8px rgba(91, 12, 26, .5);  
 }
 
 body.digitalart img {
-    border-color: #a07330;
+    border-color: #a86a05;
+    box-shadow: 3px 3px 8px rgba(124, 77, 0, .5);
 }
 
 body.paintings img {
-    border-color: #1a691a;
+    border-color: #186318;
+    box-shadow: 3px 3px 8px rgba(24, 99, 24, .5);
 }
 
 body.miniatures img {
-    border-color: #20696b;
+    border-color: #217477;
+    box-shadow: 3px 3px 8px rgba(1, 88, 91, .5);
 }
 
 body.cosplay img {
-    border-color: #6838aa;
+    border-color: #6023a5;
+    box-shadow: 3px 3px 8px rgba(57, 2, 119, .5);
 }
+
 
 /*========================
   STANDARD WRAPPED FIGURES
@@ -301,7 +331,6 @@ body.cosplay img {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 12px;
-
     margin-top: 20px;
 }
 
@@ -322,6 +351,11 @@ body.cosplay img {
     margin: 0 auto;
     object-fit: contain;
     border-radius: 8px;
+}
+
+/* row of larger images */
+.large-row-images figure img {
+    height: 400px;
 }
 
 /* allow captions under images in image rows */
@@ -405,7 +439,6 @@ figure.fullwidth-image img {
 .hero {
     position: relative;
 
-    width: 85%;
     min-height: 420px;
     margin: 30px auto;
     padding: 30px;
@@ -457,6 +490,47 @@ figure.fullwidth-image img {
 }
 
 
+/*==========================
+  LEFT IMAGE WITH ROW LAYOUT
+  ==========================*/
+/* This is the layout used for the "background" box in cosplay */
+
+.cosplay-leftimage {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.cosplay-leftimage .main-cosplay-image {
+    float: none;
+    width: 21%;
+    min-width: 200px;
+    margin: 0 0 0 12px;
+    flex-shrink: 0;
+}
+
+.cosplay-leftimage-content {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.cosplay-leftimage-content .image-row {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.cosplay-leftimage-content .image-row figure {
+    float: none;
+    width: auto;
+    margin: 0;
+}
+
+.cosplay-leftimage-content .image-row figure img {
+    height: 280px;
+    width: auto;
+}
+
 /*==================
   BACK TO TOP BUTTON
   ==================*/
@@ -505,33 +579,38 @@ html {
   ==================*/
 
 body.home .back-to-top {
-    background-color: #f1a5b4;
-    border-color: #eb9ead;
-    color: #a74152;
+    background-color: #f3a2b2;
+    border-color: #ee9aab;
+    color: #b0354b;
+    text-shadow: 2px 2px 2px rgba(176, 53, 75, 0.5);
 }
 
 body.digitalart .back-to-top {
     background-color: #fbce8a;
-    border-color: #f1c482;
+    border-color: #f3c682;
     color: #996311;
+    text-shadow: 2px 2px 2px rgba(153, 99, 17, 0.5);
 }
 
 body.paintings .back-to-top {
     background-color: #9de19d;
-    border-color: #91da91;
+    border-color: #8dd88d;
     color: #348534;
+    text-shadow: 2px 2px 2px rgba(52, 133, 52, 0.5);
 }
 
 body.miniatures .back-to-top {
     background-color: #8edddf;
-    border-color: #85d6d7;
-    color: #1B8082;
+    border-color: #81d1d2;
+    color: #1b8082;
+    text-shadow: 2px 2px 2px rgba(27, 128, 130, 0.5);
 }
 
 body.cosplay .back-to-top {
     background-color: #c7a7f5;
-    border-color: #c3a0f1;
-    color: #7648B8;
+    border-color: #bf9cee;
+    color: #7648b8;
+    text-shadow: 2px 2px 2px rgba(118, 72, 184, 0.5);
 }
 
 /*==============================
