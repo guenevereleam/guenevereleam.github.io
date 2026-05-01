@@ -19,6 +19,7 @@ h1, h2, .big-text, .centered-text, figcaption {
 .big-text,
 figcaption {
     font-size: 1.3em;
+    margin-top: 8px;
 }
 
 
@@ -53,19 +54,19 @@ header {
 /* divider after home button */
 .nav-dots, 
 .nav-divider {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(230, 230, 230);
     border-radius: 999px;
 }
 
 .nav-dots {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     margin-left: -20px;
     margin-right: -20px;
 }
 
 .nav-divider {
-    width: 10px;
+    width: 8px;
     height: 70px;
     margin-left: -10px;
     margin-right: -10px;
@@ -95,64 +96,85 @@ header {
 
 /* nav button hover */
 .nav-box:hover {
-    transform: translateY(-6px) scale(1.02);
-    opacity: 0.85;
+    animation: nav-pulse 0.45s ease infinite;
+    opacity: 0.75;
 }
 
 /* nav button click */
 .nav-box:active {
+    animation: nav-press 0.45s ease infinite;
+    opacity: 0.85;
+
     transform: translateY(4px) scale(0.98);
 }
 
 /* selected nav button */
-.nav-box.active {
+.nav-box.selected {
     font-weight: bold;
     transform: translateY(-2px) scale(1.05);
+}
+
+/* nav button animations */
+@keyframes nav-pulse {
+    0%,
+    100% {
+        transform: 
+        translateY(-2px)
+        scale(1.06)
+    }
+
+    50% {
+        transform: 
+        translateY(-2px)
+        scale(1.12)
+    }
+
+}
+
+/* nav buttons pressed animation */
+@keyframes nav-press {
+    0%,
+    100% {
+        transform: 
+        translateY(2px)
+        scale(1.05);
+    }
+
+    50% {
+        transform: 
+        translateY(2px)
+        scale(1.1)
+    }
+
 }
 
 
 /*======================
   PAGE BACKGROUND COLORS
   ======================*/
+/* includes background below Nav bar */
 
-body.home {
-    background-color: #fcecf4;
-}
-
-body.digitalart {
-    background-color: #fef7e9;
-}
-
-body.paintings {
-    background-color: #e6f2e6;
-}
-
-body.miniatures {
-    background-color: #e6f4f4;
-}
-
-body.cosplay {
-    background-color: #f3eaff;
-}
-
-/* Background below Nav bar */
-
+body.home, 
 body.home header {
     background-color: #fcecf4;
 }
 
+body.digitalart,
 body.digitalart header {
     background-color: #fef7e9;
 }
 
-body.paintings header {
+body.paintings,
+body.paintings header{
     background-color: #e6f2e6;
 }
 
+body.miniatures,
 body.miniatures header {
     background-color: #e6f4f4;
 }
 
+body.cosplay,
 body.cosplay header {
     background-color: #f3eaff;
 }
@@ -192,27 +214,27 @@ header + .year-buttons + .full {
   SELECTED NAV BUTTON OUTLINE COLORS
   ==================================*/
 
-.nav-box.home-btn.active {
+.nav-box.home-btn.selected {
     border-color: #bf3c54;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-box.digitalart-btn.active {
+.nav-box.digitalart-btn.selected {
     border-color: #a86a05;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-box.paintings-btn.active {
+.nav-box.paintings-btn.selected {
     border-color: #186318;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-box.miniatures-btn.active {
+.nav-box.miniatures-btn.selected {
     border-color: #217477;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.nav-box.cosplay-btn.active {
+.nav-box.cosplay-btn.selected {
     border-color: #6023a5;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
 }
@@ -258,6 +280,50 @@ header + .year-buttons + .full {
     border-radius: 12px;
 }
 
+/* content containers focus (bigger when hover) */
+.full,
+.small-box,
+.hero {
+    transition: transform 0.35s ease;
+}
+
+.full:hover,
+.small-box:hover,
+.hero:hover {
+    transform: scale(1.015);
+}
+
+/* content containers wiggle when click */
+.navbar:active,
+.full:active,
+.small-box:active,
+.hero:active {
+    animation: content-wiggle .3s ease-in-out infinite;
+}
+
+@keyframes content-wiggle {
+    0%,
+    50%,
+    100% {
+    transform: 
+    scale(1.012);
+    }
+
+    25% {
+    transform: 
+    scale(1.012)
+    rotate(.3deg)
+    translateX(3px);
+    }
+
+    75% {
+    transform: 
+    scale(1.012)
+    rotate(-.3deg)
+    translateX(-3px);
+    }
+}
+
 
 /*=====================
   DEFAULT IMAGE STYLING
@@ -278,29 +344,180 @@ img {
 
 body.home img {
     border-color: #bf3c54;
+    background-color: #bf3c54;
     box-shadow: 3px 3px 8px rgba(91, 12, 26, .5);  
 }
 
 body.digitalart img {
     border-color: #a86a05;
+    background-color: #a86a05;
     box-shadow: 3px 3px 8px rgba(124, 77, 0, .5);
 }
 
 body.paintings img {
     border-color: #186318;
+    background-color: #186318;
     box-shadow: 3px 3px 8px rgba(24, 99, 24, .5);
 }
 
 body.miniatures img {
     border-color: #217477;
+    background-color: #217477;
     box-shadow: 3px 3px 8px rgba(1, 88, 91, .5);
 }
 
 body.cosplay img {
     border-color: #6023a5;
+    background-color: #6023a5;
     box-shadow: 3px 3px 8px rgba(57, 2, 119, .5);
 }
 
+/*=================
+  BOTTOM PAGE ICONS
+  =================*/
+.bottom-icon-row {
+    width: 85%;
+    margin: 40px auto 20px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.bottom-line {
+    height: 8px;
+    flex: 1;
+
+    border-radius: 999px;
+    background-color: lightgray;
+}
+
+.bottom-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* circle */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body .bottom-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+
+    border: none;
+    border-radius: 50%;
+    box-shadow: none;
+
+    cursor: pointer;
+    transform-origin: center;
+}
+
+body .bottom-icon:hover {
+    animation: icon-wiggle .32s ease-in-out infinite;
+}
+
+body .bottom-icon:active {
+    animation: icon-wiggle-more .22s ease-in-out infinite;
+}
+
+@keyframes icon-wiggle {
+    0%, 
+    50%, 
+    100% {
+        transform: 
+        translateY(-2px)
+        scale(1.12);
+    }
+
+    25% {
+        transform: 
+        translateY(-2px)
+        scale(1.1)
+        rotate(4deg)
+        translateX(5px);
+    }
+
+    75% {
+        transform: 
+        translateY(-2px)
+        scale(1.1)
+        rotate(-4deg)
+        translateX(-5px);
+    }
+}
+
+@keyframes icon-wiggle-more {
+    0%, 
+    50%, 
+    100% {
+        transform: 
+        translateY(-2px)
+        scale(1.18);
+    }
+
+    25% {
+        transform: 
+        translateY(-2px)
+        scale(1.16)
+        rotate(5deg)
+        translateX(7px);
+    }
+
+    75% {
+        transform: 
+        translateY(-2px)
+        scale(1.16)
+        rotate(-5deg)
+        translateX(-7px);
+    }
+}
+
+/* Different colored shadows for icon for each page */
+body.home .bottom-icon {
+    box-shadow: 0px 0px 6px rgba(91, 12, 26, 0.35);
+}
+
+body.digitalart .bottom-icon {
+    box-shadow: 0px 0px 6px rgba(124, 77, 0, 0.35);
+}
+
+body.paintings .bottom-icon {
+    box-shadow: 0px 0px 6px rgba(24, 99, 24, 0.35);
+}
+
+body.miniatures .bottom-icon {
+    box-shadow: 0px 0px 6px rgba(1, 88, 91, 0.35);
+}
+
+body.cosplay .bottom-icon {
+    box-shadow: 0px 0px 6px rgba(57, 2, 119, 0.35);
+}
+
+/* Different colored lines next to icon for each page*/
+
+body.home .bottom-line {
+    background-color: #f3bac5;
+}
+
+body.digitalart .bottom-line {
+    background-color: #f2d5aa;
+}
+
+body.paintings .bottom-line {
+    background-color: #b2f1b2;
+}
+
+body.miniatures .bottom-line {
+    background-color: #aae8e9;
+}
+
+body.cosplay .bottom-line {
+    background-color: #d8c4f5;
+}
 
 /*========================
   STANDARD WRAPPED FIGURES
@@ -360,7 +577,6 @@ body.cosplay img {
 
 /* allow captions under images in image rows */
 .image-row figcaption {
-    margin-top: 8px;
     text-align: center;
     font-size: 1rem;
 }
@@ -542,7 +758,7 @@ html {
 .back-to-top {
     position: fixed;
     left: 15px;
-    bottom: 15px;
+    bottom: 30px;
 
     display: flex;
     justify-content: center;
@@ -564,15 +780,49 @@ html {
 
 /* hover */
 .back-to-top:hover {
-    transform: translateY(-4px) scale(1.02);
-    opacity: 0.85;
+    animation: backtotop-pulse 0.55s ease infinite;
+    opacity: 0.75;
 }
 
 /* click */
 .back-to-top:active {
-    transform: translateY(2px) scale(0.98);
+    animation: backtotop-press 0.5s ease infinite;
+    opacity: .85;
 }
 
+/*back to top pulse animation */
+@keyframes backtotop-pulse {
+    0%,
+    100% {
+        transform: 
+        translateY(-2px)
+        scale(1.08);
+    }
+
+    50% {
+        transform: 
+        translateY(-2px)
+        scale(1.16)
+    }
+
+}
+
+/*back to top pressed animation */
+@keyframes backtotop-press {
+    0%,
+    100% {
+        transform: 
+        translateY(2px)
+        scale(1.06);
+    }
+
+    50% {
+        transform: 
+        translateY(2px)
+        scale(1.12)
+    }
+
+}
 
 /*==================
   BACK TO TOP COLORS
@@ -624,7 +874,7 @@ body.cosplay .back-to-top {
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 
     z-index: 1000;
 }
@@ -652,19 +902,76 @@ body.cosplay .back-to-top {
 }
 
 .year-buttons a:hover {
-    transform: translateY(-3px);
+    animation: year-wiggle .35s ease-in-out infinite;
     opacity: 0.85;
 }
 
 .year-buttons a:active {
-    transform: translateY(2px);
+    opacity: 0.85;
+    animation: year-wiggle-press .3s ease-in-out infinite;
 }
 
+/* adjust postion of where you scroll to */
 #year-2025,
 #year-2024,
 #year-2023,
 #year-2022,
 #year-2021,
 #year-2020 {
-    scroll-margin-top: 20px;
+    scroll-margin-top: 120px;
+}
+
+
+/* wiggle animation for year buttons */
+@keyframes year-wiggle {
+    0%, 
+    50%, 
+    100% {
+        transform: 
+        translateY(-2px)
+        scale(1.1);
+    }
+
+    25% {
+        transform: 
+        translateY(-2px)
+        scale(1.1)
+        rotate(1deg)
+        translateX(1px);
+    }
+
+    75% {
+        transform: 
+        translateY(-2px)
+        scale(1.1)
+        rotate(-1deg)
+        translateX(-1px);
+    }
+}
+
+@keyframes year-wiggle-press {
+    0%, 
+    50%, 
+    100% {
+        transform: 
+        translateY(2px)
+        scale(1.1)
+        rotate(0deg);
+    }
+
+    25% {
+        transform: 
+        translateY(2px)
+        scale(1.1)
+        rotate(.5deg)
+        translateX(.5px);
+    }
+
+    75% {
+        transform: 
+        translateY(2px)
+        scale(1.1)
+        rotate(-.5deg)
+        translateX(-.5px);
+    }
 }
