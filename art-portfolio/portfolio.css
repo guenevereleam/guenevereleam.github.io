@@ -1,20 +1,19 @@
-/*================
-  BASIC PAGE SETUP
-  ================*/
-
+/*========================
+  PAGE SETUP + TEXT SIZING
+  ========================*/
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     text-align: left;
 }
 
-h1, h2, .big-text, .centered-text, figcaption {
+h1,
+h2,
+.big-text,
+.centered-text,
+figcaption {
     text-align: center;
 }
-
-/*===========
-  TEXT SIZING
-  ===========*/
 
 .big-text,
 figcaption {
@@ -22,10 +21,48 @@ figcaption {
     margin-top: 8px;
 }
 
+p:not(.big-text):not(.centered-text) {
+    font-size: 115%;
+}
+
+/*========================
+  PAGE BACKGROUND COLORS
+  ========================*/
+body.home,
+body.home header {
+    background-color: #fcecf4;
+}
+
+body.digitalart,
+body.digitalart header {
+    background-color: #fef7e9;
+}
+
+body.paintings,
+body.paintings header {
+    background-color: #e6f2e6;
+}
+
+body.miniatures,
+body.miniatures header {
+    background-color: #e6f4f4;
+}
+
+body.cosplay,
+body.cosplay header {
+    background-color: #f3eaff;
+}
 
 /*=========================
-  NAV BAR LAYOUT & POSITION
+  NAV BAR LAYOUT + POSITION
   =========================*/
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    padding: 25px;
+}
 
 .navbar {
     display: flex;
@@ -39,43 +76,68 @@ figcaption {
     border-radius: 12px;
 
     margin: 0;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-
-    padding: 25px;
+/* Remove extra space between header and first box on each page */
+header + .full,
+header + .hero,
+header + .year-buttons + .full {
+    margin-top: 5px;
 }
 
-/* divider after home button */
-.nav-dots, 
+/*================
+  NAV BAR DIVIDERS
+  ================*/
+.nav-dots,
 .nav-divider {
-    background-color: rgb(230, 230, 230);
+    background-color: #e6e6e6;
     border-radius: 999px;
 }
 
+/* Dots between most nav buttons */
 .nav-dots {
     width: 8px;
     height: 8px;
     margin-left: -20px;
     margin-right: -20px;
+
+    transition: transform 0.05s ease-out;
 }
 
+/* Line instead of dot after home button to separate it from the rest */
 .nav-divider {
     width: 8px;
     height: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: -10px;
     margin-right: -10px;
 }
 
-/*===========
-  NAV BUTTONS
-  ===========*/
+/* Dividing dots get bigger+a bit squished+darker when clicked */
+.nav-dots:active {
+    transform: scale(2.5, 2.2);
+    background-color: #c9c9c9;
+}
 
+/* Dividing bar after home gets bigger+darker when clicked */
+.nav-divider:active {
+    width: 16px;
+    height: 80px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: -14px;
+    margin-right: -14px;
+
+    background-color: #d3d3d3;
+}
+
+/*=============
+  NAV BUTTONS
+  =============*/
 .nav-box {
     display: flex;
     justify-content: center;
@@ -91,170 +153,77 @@ header {
 
     border-radius: 8px;
     border: 7px solid transparent;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.18);
 }
 
-/* nav button hover */
-.nav-box:hover {
-    animation: nav-pulse 0.45s ease infinite;
-    opacity: 0.75;
+/* Nav buttons colored individually */
+.nav-box.home-btn {
+    background-color: #dc5971;
+    box-shadow: 2px 2px 8px rgba(91, 12, 26, 0.25);
 }
 
-/* nav button click */
-.nav-box:active {
-    animation: nav-press 0.45s ease infinite;
-    opacity: 0.85;
-
-    transform: translateY(4px) scale(0.98);
+.nav-box.digitalart-btn {
+    background-color: #c2892f;
+    box-shadow: 2px 2px 8px rgba(124, 77, 0, 0.25);
 }
 
-/* selected nav button */
+.nav-box.paintings-btn {
+    background-color: #469b46;
+    box-shadow: 2px 2px 8px rgba(24, 99, 24, 0.25);
+}
+
+.nav-box.miniatures-btn {
+    background-color: #3DA2A6;
+    box-shadow: 2px 2px 8px rgba(1, 88, 91, 0.25);
+}
+
+.nav-box.cosplay-btn {
+    background-color: #8c4bd7;
+    box-shadow: 2px 2px 8px rgba(57, 2, 119, 0.25);
+}
+
+/* Selected nav button styles (dark outline + move up a bit + shadow) */
 .nav-box.selected {
     font-weight: bold;
     transform: translateY(-2px) scale(1.05);
 }
 
-/* nav button animations */
-@keyframes nav-pulse {
-    0%,
-    100% {
-        transform: 
-        translateY(-2px)
-        scale(1.06)
-    }
-
-    50% {
-        transform: 
-        translateY(-2px)
-        scale(1.12)
-    }
-
-}
-
-/* nav buttons pressed animation */
-@keyframes nav-press {
-    0%,
-    100% {
-        transform: 
-        translateY(2px)
-        scale(1.05);
-    }
-
-    50% {
-        transform: 
-        translateY(2px)
-        scale(1.1)
-    }
-
-}
-
-
-/*======================
-  PAGE BACKGROUND COLORS
-  ======================*/
-/* includes background below Nav bar */
-
-body.home, 
-body.home header {
-    background-color: #fcecf4;
-}
-
-body.digitalart,
-body.digitalart header {
-    background-color: #fef7e9;
-}
-
-body.paintings,
-body.paintings header{
-    background-color: #e6f2e6;
-}
-
-body.miniatures,
-body.miniatures header {
-    background-color: #e6f4f4;
-}
-
-body.cosplay,
-body.cosplay header {
-    background-color: #f3eaff;
-}
-
-/* settings to remove extra space between header and first box on page */
-header + .full,
-header + .hero,
-header + .year-buttons + .full {
-    margin-top: 5px;
-}
-/*=================
-  NAV BUTTON COLORS
-  =================*/
-
-.nav-box.home-btn {
-    background-color: #dc5971;
-}
-
-.nav-box.digitalart-btn {
-    background-color: #c2892f;
-}
-
-.nav-box.paintings-btn {
-    background-color: #469b46;
-}
-
-.nav-box.miniatures-btn {
-    background-color: #3DA2A6;
-}
-
-.nav-box.cosplay-btn {
-    background-color: #8c4bd7;
-}
-
-
-/*==================================
-  SELECTED NAV BUTTON OUTLINE COLORS
-  ==================================*/
-
 .nav-box.home-btn.selected {
     border-color: #bf3c54;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 8px rgba(91, 12, 26, 0.3);
 }
 
 .nav-box.digitalart-btn.selected {
     border-color: #a86a05;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 8px rgba(124, 77, 0, 0.3);
 }
 
 .nav-box.paintings-btn.selected {
     border-color: #186318;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 8px rgba(24, 99, 24, 0.3);
 }
 
 .nav-box.miniatures-btn.selected {
     border-color: #217477;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 8px rgba(1, 88, 91, 0.3);
 }
 
 .nav-box.cosplay-btn.selected {
     border-color: #6023a5;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 8px rgba(57, 2, 119, 0.3);
 }
 
-
-/*=======================
+/*========================
   MAIN CONTENT CONTAINERS
-  =======================*/
-
-/* both full and row (and hero) boxes have same margin settings*/
+  ========================*/
 .full,
 .row,
-.hero
-{
+.hero {
     width: 85%;
     margin: 30px auto;
     box-sizing: border-box;
 }
 
-/* a full-width content box */
+/* Full-width content box */
 .full {
     background-color: white;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
@@ -262,14 +231,15 @@ header + .year-buttons + .full {
     padding: 30px;
 }
 
-/* a row of smaller boxes */
+/* Row container for smaller boxes -- row total size is same as 1 full-width box */
+/* Can have 2 or 3 small-box in one row */
 .row {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
-/* individual small box inside row */
+/* Individual boxes inside a row */
 .small-box {
     flex: 1 1 300px;
     padding: 40px;
@@ -280,312 +250,78 @@ header + .year-buttons + .full {
     border-radius: 12px;
 }
 
-/* content containers focus (bigger when hover) */
-.full,
-.small-box,
-.hero {
-    transition: transform 0.35s ease;
-}
-
-.full:hover,
-.small-box:hover,
-.hero:hover {
-    transform: scale(1.015);
-}
-
-/* content containers wiggle when click */
-.navbar:active,
-.full:active,
-.small-box:active,
-.hero:active {
-    animation: content-wiggle .3s ease-in-out infinite;
-}
-
-@keyframes content-wiggle {
-    0%,
-    50%,
-    100% {
-    transform: 
-    scale(1.012);
-    }
-
-    25% {
-    transform: 
-    scale(1.012)
-    rotate(.3deg)
-    translateX(3px);
-    }
-
-    75% {
-    transform: 
-    scale(1.012)
-    rotate(-.3deg)
-    translateX(-3px);
-    }
-}
-
-
-/*=====================
-  DEFAULT IMAGE STYLING
-  =====================*/
-
+/*====================
+  DEFAULT IMAGE STYLES
+  ====================*/
 img {
     border: 8px solid transparent;
     border-radius: 12px;
     box-sizing: border-box;
+
     width: 100%;
     height: auto;
     display: block;
 }
 
-/*==========================================
-  PAGE-SPECIFIC IMAGE BORDER COLORS + SHADOW
-  ========================================== */
-
+/* Page-specific colors for image borders and shadows */
 body.home img {
     border-color: #bf3c54;
     background-color: #bf3c54;
-    box-shadow: 3px 3px 8px rgba(91, 12, 26, .5);  
+    box-shadow: 3px 3px 8px rgba(91, 12, 26, 0.3);
 }
 
 body.digitalart img {
     border-color: #a86a05;
     background-color: #a86a05;
-    box-shadow: 3px 3px 8px rgba(124, 77, 0, .5);
+    box-shadow: 3px 3px 8px rgba(124, 77, 0, 0.3);
 }
 
 body.paintings img {
     border-color: #186318;
     background-color: #186318;
-    box-shadow: 3px 3px 8px rgba(24, 99, 24, .5);
+    box-shadow: 3px 3px 8px rgba(24, 99, 24, 0.3);
 }
 
 body.miniatures img {
     border-color: #217477;
     background-color: #217477;
-    box-shadow: 3px 3px 8px rgba(1, 88, 91, .5);
+    box-shadow: 3px 3px 8px rgba(1, 88, 91, 0.3);
 }
 
 body.cosplay img {
     border-color: #6023a5;
     background-color: #6023a5;
-    box-shadow: 3px 3px 8px rgba(57, 2, 119, .5);
+    box-shadow: 3px 3px 8px rgba(57, 2, 119, 0.3);
 }
 
-/*=================
-  BOTTOM PAGE ICONS
-  =================*/
-.bottom-icon-row {
-    width: 85%;
-    margin: 40px auto 20px auto;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.bottom-line {
-    height: 8px;
-    flex: 1;
-
-    border-radius: 999px;
-    background-color: lightgray;
-}
-
-.bottom-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; /* circle */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-body .bottom-icon img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-
-    border: none;
-    border-radius: 50%;
-    box-shadow: none;
-
-    cursor: pointer;
-    transform-origin: center;
-}
-
-body .bottom-icon:hover {
-    animation: icon-wiggle .32s ease-in-out infinite;
-}
-
-body .bottom-icon:active {
-    animation: icon-wiggle-more .22s ease-in-out infinite;
-}
-
-@keyframes icon-wiggle {
-    0%, 
-    50%, 
-    100% {
-        transform: 
-        translateY(-2px)
-        scale(1.12);
-    }
-
-    25% {
-        transform: 
-        translateY(-2px)
-        scale(1.1)
-        rotate(4deg)
-        translateX(5px);
-    }
-
-    75% {
-        transform: 
-        translateY(-2px)
-        scale(1.1)
-        rotate(-4deg)
-        translateX(-5px);
-    }
-}
-
-@keyframes icon-wiggle-more {
-    0%, 
-    50%, 
-    100% {
-        transform: 
-        translateY(-2px)
-        scale(1.18);
-    }
-
-    25% {
-        transform: 
-        translateY(-2px)
-        scale(1.16)
-        rotate(5deg)
-        translateX(7px);
-    }
-
-    75% {
-        transform: 
-        translateY(-2px)
-        scale(1.16)
-        rotate(-5deg)
-        translateX(-7px);
-    }
-}
-
-/* Different colored shadows for icon for each page */
-body.home .bottom-icon {
-    box-shadow: 0px 0px 6px rgba(91, 12, 26, 0.35);
-}
-
-body.digitalart .bottom-icon {
-    box-shadow: 0px 0px 6px rgba(124, 77, 0, 0.35);
-}
-
-body.paintings .bottom-icon {
-    box-shadow: 0px 0px 6px rgba(24, 99, 24, 0.35);
-}
-
-body.miniatures .bottom-icon {
-    box-shadow: 0px 0px 6px rgba(1, 88, 91, 0.35);
-}
-
-body.cosplay .bottom-icon {
-    box-shadow: 0px 0px 6px rgba(57, 2, 119, 0.35);
-}
-
-/* Different colored lines next to icon for each page*/
-
-body.home .bottom-line {
-    background-color: #f3bac5;
-}
-
-body.digitalart .bottom-line {
-    background-color: #f2d5aa;
-}
-
-body.paintings .bottom-line {
-    background-color: #b2f1b2;
-}
-
-body.miniatures .bottom-line {
-    background-color: #aae8e9;
-}
-
-body.cosplay .bottom-line {
-    background-color: #d8c4f5;
-}
-
-/*========================
-  STANDARD WRAPPED FIGURES
-  ======================== */
-
-/* figure in a full box */
+/*======================
+  WRAPPED FIGURE LAYOUTS
+  ======================*/
+/* Default figure inside a full-width box -> text wraps on the left */
 .full figure {
     float: right;
     width: 30%;
     margin: 0 0 10px 20px;
 }
 
-/* figure in a small box*/
+/* Standard figure inside a small box -> text wraps on the left */
 .row figure {
     float: right;
     width: 50%;
     margin: 0 0 10px 20px;
 }
 
-/*==========
-  IMAGE ROWS
-  ==========*/
-
-/* horizontal row of multiple images */
-.image-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 20px;
+/* Larger option (image still has text wrapping on the left) */
+figure.large-wrapped-image {
+    float: right;
+    width: 35%;
+    margin: 0 0 10px 25px;
 }
 
-/* remove figure wrapping inside image rows */
-.image-row figure {
-    float: none;
-    width: auto;
-    margin: 0;
-    flex: 0 0 auto;
-}
-
-/* special image sizing inside image rows */
-.image-row figure img {
-    width: auto;
-    height: 280px;
-    max-width: none;
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-/* row of larger images */
-.large-row-images figure img {
-    height: 400px;
-}
-
-/* allow captions under images in image rows */
-.image-row figcaption {
-    text-align: center;
-    font-size: 1rem;
-}
-
-/*==================
-  IMAGE SIZE OPTIONS
-  ==================*/
-
-/* (centered) bigger image */
+/*====================
+  CENTERED IMAGE SIZES
+  ====================*/
+/* Centered larger image */
 figure.bigger-image {
     float: none;
     width: 80%;
@@ -597,11 +333,12 @@ figure.bigger-image img {
     max-width: 100%;
     max-height: 100vh;
     height: auto;
+
     display: block;
     margin: 0 auto;
 }
 
-/* (centered) full-width image */
+/* Centered full-width image */
 figure.fullwidth-image {
     float: none;
     width: 100%;
@@ -613,19 +350,57 @@ figure.fullwidth-image img {
     max-width: 100%;
     max-height: 100vh;
     height: auto;
+
     display: block;
     margin: 0 auto;
 }
 
+/*==========
+  IMAGE ROWS
+  ==========*/
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
 
-/* bigger image(s) within an image row*/
-.large-images figure img {
-    height: 450px;
+    margin-top: 20px;
+}
 
-}/*========================
-  SIDE-BY-SIDE IMAGE LAYOUT
-  =========================*/
+/* Remove default text wrapping/image alignment for rows of images */
+.image-row figure {
+    float: none;
+    width: auto;
+    margin: 0;
+    flex: 0 0 auto;
+}
 
+.image-row figure img {
+    width: auto;
+    height: 280px;
+    max-width: none;
+
+    display: block;
+    margin: 0 auto;
+
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.image-row figcaption {
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Larger image-row option */
+.large-row-images figure img {
+    height: 400px;
+}
+
+/*==========================
+  SIDE-BY-SIDE IMAGE LAYOUTS
+  ==========================*/
 .side-image-box {
     display: flex;
     align-items: flex-start;
@@ -644,9 +419,14 @@ figure.fullwidth-image img {
     flex: 1;
 }
 
-/* bigger image in side-by-side layout */
-.side-image-box.large-side-image figure {
+/* Slightly Larger images inside side-by-side layout */
+.side-image-box.large-row-image figure {
     width: 45%;
+}
+
+/* Larger image next to text */
+.side-image-box figure.large-wrapped-image {
+    width: 35%;
 }
 
 /*==========
@@ -674,15 +454,16 @@ figure.fullwidth-image img {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
 
     width: 100%;
     height: 100%;
     object-fit: cover;
 
-    border: 0px solid transparent;
-
-    z-index: 0;   
+    border: 0 solid transparent;
 }
+
+/* Text box over image */
 
 .hero-text {
     position: relative;
@@ -705,12 +486,9 @@ figure.fullwidth-image img {
     font-size: 1.4em;
 }
 
-
 /*==========================
-  LEFT IMAGE WITH ROW LAYOUT
+  COSPLAY LEFT-IMAGE SECTION
   ==========================*/
-/* This is the layout used for the "background" box in cosplay */
-
 .cosplay-leftimage {
     display: flex;
     gap: 12px;
@@ -733,6 +511,7 @@ figure.fullwidth-image img {
 .cosplay-leftimage-content .image-row {
     justify-content: center;
     gap: 10px;
+
     margin-top: 25px;
 }
 
@@ -743,22 +522,65 @@ figure.fullwidth-image img {
 }
 
 .cosplay-leftimage-content .image-row figure img {
-    height: 280px;
     width: auto;
+    height: 280px;
+}
+
+/*=================
+  YEAR JUMP BUTTONS
+  =================*/
+html {
+    scroll-behavior: smooth;
+}
+
+.year-buttons {
+    position: fixed;
+    left: 15px;
+    top: 50%;
+    z-index: 1000;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.year-buttons a {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: #87570F;
+    background-color: #FFD798;
+    border: 4px solid #f5ce8e;
+    border-radius: 8px;
+
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Adjust where you end up on the page after clicking a year link/button */
+#year-2026, #year-2025, #year-2024, #year-2023, #year-2022, #year-2021, #year-2020 {
+    scroll-margin-top: 150px;
 }
 
 /*==================
   BACK TO TOP BUTTON
   ==================*/
-
-html {
-    scroll-behavior: smooth;
-}
-
 .back-to-top {
     position: fixed;
     left: 15px;
     bottom: 30px;
+    z-index: 1000;
 
     display: flex;
     justify-content: center;
@@ -775,59 +597,9 @@ html {
     border-radius: 8px;
     border: 7px solid transparent;
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
 }
 
-/* hover */
-.back-to-top:hover {
-    animation: backtotop-pulse 0.55s ease infinite;
-    opacity: 0.75;
-}
-
-/* click */
-.back-to-top:active {
-    animation: backtotop-press 0.5s ease infinite;
-    opacity: .85;
-}
-
-/*back to top pulse animation */
-@keyframes backtotop-pulse {
-    0%,
-    100% {
-        transform: 
-        translateY(-2px)
-        scale(1.08);
-    }
-
-    50% {
-        transform: 
-        translateY(-2px)
-        scale(1.16)
-    }
-
-}
-
-/*back to top pressed animation */
-@keyframes backtotop-press {
-    0%,
-    100% {
-        transform: 
-        translateY(2px)
-        scale(1.06);
-    }
-
-    50% {
-        transform: 
-        translateY(2px)
-        scale(1.12)
-    }
-
-}
-
-/*==================
-  BACK TO TOP COLORS
-  ==================*/
-
+/* Page-specific colors for back-to-top buttons */
 body.home .back-to-top {
     background-color: #f3a2b2;
     border-color: #ee9aab;
@@ -863,115 +635,558 @@ body.cosplay .back-to-top {
     text-shadow: 2px 2px 2px rgba(118, 72, 184, 0.5);
 }
 
-/*==============================
-  DIGITAL-ART: YEAR JUMP BUTTONS
-  ==============================*/
+/*=================
+  BOTTOM PAGE ICONS
+  =================*/
+/* The row with the icon and the divider lines next to it*/
+.bottom-icon-row {
+    width: 85%;
+    margin: 40px auto 20px auto;
 
-.year-buttons {
-    position: fixed;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-.year-buttons a {
+/* Lines on either side of icon */
+.bottom-line {
+    height: 8px;
+    flex: 1;
+
+    border-radius: 999px;
+    background-color: lightgray;
+}
+
+/* The icon container */
+.bottom-icon {
     width: 60px;
-    height: 40px;
-    padding: 0;
-    box-sizing: border-box;
+    height: 60px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    text-align: center;
+    border-radius: 50%;
+}
+
+/* The icon container image */
+body .bottom-icon img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: cover;
+
+    border: none;
+    border-radius: 50%;
+    box-shadow: none;
+
+    cursor: pointer;
+    transform-origin: center;
+}
+
+/* Page-specific colored shadows for bottom icon */
+body.home .bottom-icon {
+    box-shadow: 0 0 6px rgba(91, 12, 26, 0.35);
+}
+
+body.digitalart .bottom-icon {
+    box-shadow: 0 0 6px rgba(124, 77, 0, 0.35);
+}
+
+body.paintings .bottom-icon {
+    box-shadow: 0 0 6px rgba(24, 99, 24, 0.35);
+}
+
+body.miniatures .bottom-icon {
+    box-shadow: 0 0 6px rgba(1, 88, 91, 0.35);
+}
+
+body.cosplay .bottom-icon {
+    box-shadow: 0 0 6px rgba(57, 2, 119, 0.35);
+}
+
+/* Page-specific colors for bottom divider lines */
+body.home .bottom-line {
+    background-color: #f3bac5;
+}
+
+body.digitalart .bottom-line {
+    background-color: #f2d5aa;
+}
+
+body.paintings .bottom-line {
+    background-color: #b2f1b2;
+}
+
+body.miniatures .bottom-line {
+    background-color: #aae8e9;
+}
+
+body.cosplay .bottom-line {
+    background-color: #d8c4f5;
+}
+
+/*=================
+  LINKS + CITATIONS
+  =================*/
+/* Normal links (non-cite) inside paragraphs get small click effects */
+p a:not(:has(cite)) {
+    display: inline-block;
+}
+
+/* Links that are also citations are black and un-underlined (most are book/game titles) */
+a:has(cite),
+a:has(cite) cite {
+    color: black;
     text-decoration: none;
-    font-weight: bold;
-
-    color: #87570F;
-    background-color: #FFD798;
-    border: 4px solid #f5ce8e;
-    border-radius: 8px;
-
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.18);
 }
 
+/*==============================
+  SWORD CAT IMAGE SWAP ANIMATION
+  ==============================*/
+.sword-cat-swap {
+    position: relative;
+}
+
+.sword-cat-frame {
+    width: 100%;
+    height: auto;
+}
+
+/* Stack every sword-cat image except the first one */
+.sword-cat-frame:not(.frame-1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    opacity: 0;
+}
+
+/* Hide first frame while the sword-cat figure is hovered */
+.sword-cat-swap:hover .frame-1 {
+    opacity: 0;
+}
+
+/* Transition frames */
+.sword-cat-swap:hover .frame-2 {
+    animation: sword-frame-2 0.3s steps(1) forwards;
+}
+
+.sword-cat-swap:hover .frame-3 {
+    animation: sword-frame-3 0.3s steps(1) forwards;
+}
+
+.sword-cat-swap:hover .frame-4 {
+    animation: sword-frame-4 0.3s steps(1) forwards;
+}
+
+.sword-cat-swap:hover .frame-5 {
+    animation: sword-frame-5 0.3s steps(1) forwards;
+}
+
+.sword-cat-swap:hover .frame-6 {
+    animation: sword-frame-6 0.3s steps(1) forwards;
+}
+
+/* Final frame stays visible until un-hovered. */
+.sword-cat-swap:hover .frame-final {
+    animation: sword-final 0.3s steps(1) forwards;
+}
+
+/*=======================================
+  INTERACTION + ANIMATIONS ON CLICK/HOVER
+  =======================================*/
+/* Nav buttons pulse on hover */
+.nav-box:hover {
+    animation: nav-pulse 0.45s ease infinite;
+    opacity: 0.75;
+    transform: translateY(-2px) scale(1.02); /* Move up a bit, bigger */
+}
+
+/* Nav buttons pulse on press*/
+.nav-box:active {
+    animation: nav-press 0.45s ease infinite;
+    opacity: 0.85;
+    transform: translateY(2px) scale(0.98); /* Move down a bit, smaller */
+}
+
+/* Content boxes slightly bigger on hover. */
+.full,
+.small-box,
+.hero {
+    transition: transform 0.35s ease;
+}
+
+.full:hover,
+.small-box:hover,
+.hero:hover {
+    transform: scale(1.01);
+}
+
+/* Content boxes wiggle when clicked (unless an image/link inside is clicked instead (image wiggles then)) */
+.navbar:active:not(:has(.nav-box:active, .nav-dots:active, .nav-divider:active)),
+.full:active:not(:has(img:active, a:active)),
+.small-box:active:not(:has(img:active, a:active)),
+.hero:active:not(:has(img:active)) {
+    animation: content-wiggle 0.22s ease-in-out infinite;
+}
+
+/* Images wiggle when clicked */
+.full img:active,
+.small-box img:active {
+    animation: content-wiggle 0.22s ease-in-out infinite;
+}
+
+/* Cat images have their own click animation (more dramatic wiggle than other images) */
+.full img.cat-image:active,
+.small-box img.cat-image:active,
+.hero img.cat-image:active {
+    animation: cat-wiggle 0.2s ease-in-out infinite;
+}
+
+/* Bottom page icon wiggles when hovered */
+body .bottom-icon:hover {
+    animation: icon-wiggle 0.32s ease-in-out infinite;
+}
+
+/* Bottom page icon wiggles (FAST) when clicked */
+body .bottom-icon:active {
+    animation: icon-wiggle-more 0.18s ease-in-out infinite;
+}
+
+/* Bottom divider lines get bigger when clicked */
+.bottom-line:active {
+    transform: scaleX(1.04);
+    height: 14px;
+}
+
+/* Back to top button pulses when hovered */
+.back-to-top:hover {
+    animation: backtotop-pulse 0.55s ease infinite;
+    opacity: 0.75;
+}
+
+/* Back to top button pulses (faster) when pressed */
+.back-to-top:active {
+    animation: backtotop-press 0.5s ease infinite;
+    opacity: 0.85;
+}
+
+/* Year buttons on digital-art page wiggle when hovered */
 .year-buttons a:hover {
-    animation: year-wiggle .35s ease-in-out infinite;
+    animation: year-wiggle 0.35s ease-in-out infinite;
     opacity: 0.85;
 }
 
+/* Year buttons wiggle (faster) when pressed */
 .year-buttons a:active {
+    animation: year-wiggle-press 0.3s ease-in-out infinite;
     opacity: 0.85;
-    animation: year-wiggle-press .3s ease-in-out infinite;
 }
 
-/* adjust postion of where you scroll to */
-#year-2025,
-#year-2024,
-#year-2023,
-#year-2022,
-#year-2021,
-#year-2020 {
-    scroll-margin-top: 120px;
+/* Briefly highlight the selected year after clicking a year jump button */
+/* See animation towords end of css file */
+body:has(#year-2026:target) .year-buttons a[href="#year-2026"],
+body:has(#year-2025:target) .year-buttons a[href="#year-2025"],
+body:has(#year-2024:target) .year-buttons a[href="#year-2024"],
+body:has(#year-2023:target) .year-buttons a[href="#year-2023"],
+body:has(#year-2022:target) .year-buttons a[href="#year-2022"],
+body:has(#year-2021:target) .year-buttons a[href="#year-2021"],
+body:has(#year-2020:target) .year-buttons a[href="#year-2020"] {
+    animation: year-highlight 2s ease-out;
 }
 
+/* Links (in paragraphs, not page links like buttons) get emphasis when hovered/clicked */
+p a:hover:not(:has(cite)) {
+    transform: translateY(-1px) scale(1.01);
+}
 
-/* wiggle animation for year buttons */
+p a:active:not(:has(cite)) {
+    transform: translateY(-2px) scale(1.05) rotate(2deg);
+}
+
+/* Citations glow when hovered over */
+cite:hover {
+    text-shadow: 0 0 3px rgb(255, 243, 24);
+}
+
+/* Sword-cat figure wiggle after the transition frames finish */
+.sword-cat-swap:hover {
+    animation: content-wiggle 0.3s ease-in-out 0.3s infinite;
+}
+
+.sword-cat-swap:active {
+    animation: cat-wiggle 0.18s ease-in-out infinite;
+}
+
+/*===================
+  ANIMATION KEYFRAMES
+  ===================*/
+/* Nav button pulses when hovered */
+@keyframes nav-pulse {
+    0%,
+    100% {
+        transform: translateY(-2px) scale(1.06);
+    }
+
+    50% {
+        transform: translateY(-2px) scale(1.12);
+    }
+}
+
+/* Nav button pulses when pressed (less than when hovered) */
+@keyframes nav-press {
+    0%,
+    100% {
+        transform: translateY(2px) scale(1.05);
+    }
+
+    50% {
+        transform: translateY(2px) scale(1.1);
+    }
+}
+
+/* Content wiggles (mostly used when clicked on general content such as boxes/images) */
+@keyframes content-wiggle {
+    0%,
+    50%,
+    100% {
+        transform: scale(1.011);
+    }
+
+    25% {
+        transform: scale(1.011) rotate(0.2deg) translateX(2px);
+    }
+
+    75% {
+        transform: scale(1.011) rotate(-0.2deg) translateX(-2px);
+    }
+}
+
+/* Images of cats wiggle MORE than normal images when clicked */
+@keyframes cat-wiggle {
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1.03);
+    }
+
+    25% {
+        transform: rotate(1.5deg) scale(1.04);
+    }
+
+    75% {
+        transform: rotate(-1.5deg) scale(1.03);
+    }
+}
+
+/* Bottom icon wiggles when hovered */
+@keyframes icon-wiggle {
+    0%,
+    50%,
+    100% {
+        transform: translateY(-2px) scale(1.12);
+    }
+
+    25% {
+        transform: translateY(-2px) scale(1.1) rotate(4deg) translateX(5px);
+    }
+
+    75% {
+        transform: translateY(-2px) scale(1.1) rotate(-4deg) translateX(-5px);
+    }
+}
+
+/* Bottom icon wiggles MORE when clicked */
+@keyframes icon-wiggle-more {
+    0%,
+    50%,
+    100% {
+        transform: translateY(-2px) scale(1.18);
+    }
+
+    25% {
+        transform: translateY(-2px) scale(1.16) rotate(5deg) translateX(7px);
+    }
+
+    75% {
+        transform: translateY(-2px) scale(1.16) rotate(-5deg) translateX(-7px);
+    }
+}
+
+/* Back-to-top pulses when hovered */
+@keyframes backtotop-pulse {
+    0%,
+    100% {
+        transform: translateY(-2px) scale(1.08);
+    }
+
+    50% {
+        transform: translateY(-2px) scale(1.16);
+    }
+}
+
+/* Back-to-top pulses when pressed (less than when hover) */
+@keyframes backtotop-press {
+    0%,
+    100% {
+        transform: translateY(2px) scale(1.06);
+    }
+
+    50% {
+        transform: translateY(2px) scale(1.12);
+    }
+}
+
+/* Year button wiggle when hover */
 @keyframes year-wiggle {
-    0%, 
-    50%, 
+    0%,
+    50%,
     100% {
-        transform: 
-        translateY(-2px)
-        scale(1.1);
+        transform: translateY(-2px) scale(1.1);
     }
 
     25% {
-        transform: 
-        translateY(-2px)
-        scale(1.1)
-        rotate(1deg)
-        translateX(1px);
+        transform: translateY(-2px) scale(1.1) rotate(1deg) translateX(1px);
     }
 
     75% {
-        transform: 
-        translateY(-2px)
-        scale(1.1)
-        rotate(-1deg)
-        translateX(-1px);
+        transform: translateY(-2px) scale(1.1) rotate(-1deg) translateX(-1px);
     }
 }
 
+/* Year button wiggle when pressed (less than when hover) */
 @keyframes year-wiggle-press {
-    0%, 
-    50%, 
+    0%,
+    50%,
     100% {
-        transform: 
-        translateY(2px)
-        scale(1.1)
-        rotate(0deg);
+        transform: translateY(2px) scale(1.1) rotate(0deg);
     }
 
     25% {
-        transform: 
-        translateY(2px)
-        scale(1.1)
-        rotate(.5deg)
-        translateX(.5px);
+        transform: translateY(2px) scale(1.1) rotate(0.5deg) translateX(0.5px);
     }
 
     75% {
-        transform: 
-        translateY(2px)
-        scale(1.1)
-        rotate(-.5deg)
-        translateX(-.5px);
+        transform: translateY(2px) scale(1.1) rotate(-0.5deg) translateX(-0.5px);
+    }
+}
+
+/* Year button has short/temp highlight after clicking */
+@keyframes year-highlight {
+    0%,
+    50% {
+        background-color: #edb65e;
+        color: #633d03;
+        border-color: #dea74e;
+        transform: scale(1.1);
+    }
+
+    100% {
+        background-color: #FFD798;
+        color: #87570F;
+        border-color: #f5ce8e;
+        transform: scale(1);
+    }
+}
+
+/*===================
+  SWORD CAT ANIMATION
+  ===================*/
+/* Sword-cat transition frame 2 (frame 1 is already there when not hovered/animated/before sword fades in) */
+@keyframes sword-frame-2 {
+    0%,
+    16.6% {
+        opacity: 1;
+    }
+
+    16.7%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sword-cat transition frame 3 */
+@keyframes sword-frame-3 {
+    0%,
+    16.6% {
+        opacity: 0;
+    }
+
+    16.7%,
+    33.2% {
+        opacity: 1;
+    }
+
+    33.3%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sword-cat transition frame 4 */
+@keyframes sword-frame-4 {
+    0%,
+    33.2% {
+        opacity: 0;
+    }
+
+    33.3%,
+    49.9% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sword-cat transition frame 5 */
+@keyframes sword-frame-5 {
+    0%,
+    49.9% {
+        opacity: 0;
+    }
+
+    50%,
+    66.5% {
+        opacity: 1;
+    }
+
+    66.6%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sword-cat transition frame 6 */
+@keyframes sword-frame-6 {
+    0%,
+    66.5% {
+        opacity: 0;
+    }
+
+    66.6%,
+    83.2% {
+        opacity: 1;
+    }
+
+    83.3%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Sword-cat final frame (stays on this until un-hovered) */
+@keyframes sword-final {
+    0%,
+    83.2% {
+        opacity: 0;
+    }
+
+    83.3%,
+    100% {
+        opacity: 1;
     }
 }
