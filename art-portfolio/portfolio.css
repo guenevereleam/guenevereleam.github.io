@@ -250,6 +250,28 @@ header + .year-buttons + .full {
     border-radius: 12px;
 }
 
+/* A short, smaller box (centered) - Used for Image Credit section on homepage */
+.short-box {
+    background-color: white;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 2px;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 65%;
+}
+
+.short-box p {
+    font-size: 100%;
+    color: #555555;
+}
+
+.short-box h2 {
+    font-size: 120%;
+    color: #555555;
+}
+
+
 /*====================
   DEFAULT IMAGE STYLES
   ====================*/
@@ -821,7 +843,7 @@ a:has(cite) cite {
 .full:hover,
 .small-box:hover,
 .hero:hover {
-    transform: scale(1.01);
+    transform: scale(1.005);
 }
 
 /* Content boxes wiggle when clicked (unless an image/link inside is clicked instead (image wiggles then)) */
@@ -842,7 +864,7 @@ a:has(cite) cite {
 .full img.cat-image:active,
 .small-box img.cat-image:active,
 .hero img.cat-image:active {
-    animation: cat-wiggle 0.2s ease-in-out infinite;
+    animation: cat-wiggle .2s linear infinite;
 }
 
 /* Bottom page icon wiggles when hovered */
@@ -917,7 +939,7 @@ cite:hover {
 }
 
 .sword-cat-swap:active {
-    animation: cat-wiggle 0.18s ease-in-out infinite;
+    animation: cat-wiggle 0.18s linear infinite;
 }
 
 /*===================
@@ -952,31 +974,32 @@ cite:hover {
     0%,
     50%,
     100% {
-        transform: scale(1.011);
+        transform: scale(1.005);
     }
 
     25% {
-        transform: scale(1.011) rotate(0.2deg) translateX(2px);
+        transform: scale(1.005) rotate(0.2deg) translateX(3px);
     }
 
     75% {
-        transform: scale(1.011) rotate(-0.2deg) translateX(-2px);
+        transform: scale(1.005) rotate(-0.2deg) translateX(-3px);
     }
 }
 
 /* Images of cats wiggle MORE than normal images when clicked */
 @keyframes cat-wiggle {
     0%,
+    50%,
     100% {
-        transform: rotate(0deg) scale(1.03);
+        transform: scale(1.03) rotate(0deg) translateX(0);
     }
 
     25% {
-        transform: rotate(1.5deg) scale(1.04);
+        transform: scale(1.04) rotate(1.5deg) translateX(3px);
     }
 
     75% {
-        transform: rotate(-1.5deg) scale(1.03);
+        transform: scale(1.04) rotate(-1.5deg) translateX(-3px);
     }
 }
 
