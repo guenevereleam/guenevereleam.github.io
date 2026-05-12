@@ -30,27 +30,27 @@ p:not(.big-text):not(.centered-text) {
   ========================*/
 body.home,
 body.home header {
-    background-color: #fcecf4;
+    background-color: #f3dfe8;
 }
 
 body.digitalart,
 body.digitalart header {
-    background-color: #fef7e9;
+    background-color: #f7eee1;
 }
 
 body.paintings,
 body.paintings header {
-    background-color: #e6f2e6;
+    background-color: #e9f2e6;
 }
 
 body.miniatures,
 body.miniatures header {
-    background-color: #e6f4f4;
+    background-color: #def2f6;
 }
 
 body.cosplay,
 body.cosplay header {
-    background-color: #f3eaff;
+    background-color: #eee4fa;
 }
 
 /*=========================
@@ -157,7 +157,7 @@ header + .year-buttons + .full {
 
 /* Nav buttons colored individually */
 .nav-box.home-btn {
-    background-color: #dc5971;
+    background-color: #d4536b;
     box-shadow: 2px 2px 8px rgba(91, 12, 26, 0.25);
 }
 
@@ -167,17 +167,17 @@ header + .year-buttons + .full {
 }
 
 .nav-box.paintings-btn {
-    background-color: #469b46;
+    background-color: #3d903d;
     box-shadow: 2px 2px 8px rgba(24, 99, 24, 0.25);
 }
 
 .nav-box.miniatures-btn {
-    background-color: #3DA2A6;
+    background-color: #357DA3;
     box-shadow: 2px 2px 8px rgba(1, 88, 91, 0.25);
 }
 
 .nav-box.cosplay-btn {
-    background-color: #8c4bd7;
+    background-color: #8745d2;
     box-shadow: 2px 2px 8px rgba(57, 2, 119, 0.25);
 }
 
@@ -188,27 +188,27 @@ header + .year-buttons + .full {
 }
 
 .nav-box.home-btn.selected {
-    border-color: #bf3c54;
+    border-color: #a3263d;
     box-shadow: 3px 3px 8px rgba(91, 12, 26, 0.3);
 }
 
 .nav-box.digitalart-btn.selected {
-    border-color: #a86a05;
+    border-color: #996003;
     box-shadow: 3px 3px 8px rgba(124, 77, 0, 0.3);
 }
 
 .nav-box.paintings-btn.selected {
-    border-color: #186318;
+    border-color: #186618;
     box-shadow: 3px 3px 8px rgba(24, 99, 24, 0.3);
 }
 
 .nav-box.miniatures-btn.selected {
-    border-color: #217477;
-    box-shadow: 3px 3px 8px rgba(1, 88, 91, 0.3);
+    border-color: #0b547b;
+    box-shadow: 3px 3px 8px rgba(31, 85, 142, 0.3);
 }
 
 .nav-box.cosplay-btn.selected {
-    border-color: #6023a5;
+    border-color: #591ba1;
     box-shadow: 3px 3px 8px rgba(57, 2, 119, 0.3);
 }
 
@@ -250,7 +250,26 @@ header + .year-buttons + .full {
     border-radius: 12px;
 }
 
-/* A short, smaller box (centered) - Used for Image Credit section on homepage */
+/* Boxes inside other box - used for cats section of homepage */
+.inner-box-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Small boxes used inside a .full box */
+.inner-small-box {
+    flex: 1 1 400px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    border: 2px solid rgba(238, 221, 224, 0.5);
+    box-shadow: 0px 0px 8px rgba(195, 178, 182, 0.4);
+    border-radius: 12px;
+}
+
+/* A short, smaller box (centered) - Used for image credit section on homepage */
 .short-box {
     background-color: white;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
@@ -305,8 +324,8 @@ body.paintings img {
 }
 
 body.miniatures img {
-    border-color: #217477;
-    background-color: #217477;
+    border-color: #1f678e;
+    background-color: #1f678e;
     box-shadow: 3px 3px 8px rgba(1, 88, 91, 0.3);
 }
 
@@ -457,7 +476,7 @@ figure.fullwidth-image img {
 .hero {
     position: relative;
 
-    min-height: 420px;
+    min-height: 600px;
     margin: 30px auto;
     padding: 30px;
     box-sizing: border-box;
@@ -644,10 +663,10 @@ body.paintings .back-to-top {
 }
 
 body.miniatures .back-to-top {
-    background-color: #8edddf;
-    border-color: #81d1d2;
-    color: #1b8082;
-    text-shadow: 2px 2px 2px rgba(27, 128, 130, 0.5);
+    background-color: #8eb5df;
+    border-color: #83acd7;
+    color: #1b528d;
+    text-shadow: 2px 2px 2px rgba(27, 82, 141, 0.5);
 }
 
 body.cosplay .back-to-top {
@@ -721,7 +740,7 @@ body.paintings .bottom-icon {
 }
 
 body.miniatures .bottom-icon {
-    box-shadow: 0 0 6px rgba(1, 88, 91, 0.35);
+    box-shadow: 0 0 6px rgba(27, 82, 141, 0.35);
 }
 
 body.cosplay .bottom-icon {
@@ -742,7 +761,7 @@ body.paintings .bottom-line {
 }
 
 body.miniatures .bottom-line {
-    background-color: #aae8e9;
+    background-color: #b5eaf4;
 }
 
 body.cosplay .bottom-line {
@@ -752,16 +771,44 @@ body.cosplay .bottom-line {
 /*=================
   LINKS + CITATIONS
   =================*/
-/* Normal links (non-cite) inside paragraphs get small click effects */
-p a:not(:has(cite)) {
+
+
+/* Links (in paragraphs, not page links like buttons) get emphasis when hovered/clicked */
+p a:hover, figcaption a:hover {
+    transform: translateY(-1px) scale(1.01);
+}
+
+p a:active, figcaption a:hover {
+    transform: translateY(-2px) scale(1.05) rotate(2deg);
+}
+
+/* Links inside paragraphs get small click effects */
+p a, figcaption a {
     display: inline-block;
 }
 
-/* Links that are also citations are black and un-underlined (most are book/game titles) */
+/* Links that are also citations remain black and un-underlined */
 a:has(cite),
 a:has(cite) cite {
     color: black;
     text-decoration: none;
+}
+
+/* Citations glow */
+cite {
+    text-shadow: 
+        0 0 3px rgb(255, 243, 24);
+}
+
+/* Citations glow stronger when hovered over */
+cite:hover {
+    text-shadow: 
+        0 0 4px rgb(255, 243, 24),
+        0 0 4px rgb(255, 243, 24),
+        0 0 4px rgb(255, 243, 24),
+        0 0 6px rgb(255, 243, 24),
+        0 0 6px rgb(255, 243, 24),
+        0 0 6px rgb(255, 243, 24);
 }
 
 /*==============================
@@ -850,7 +897,7 @@ a:has(cite) cite {
 .navbar:active:not(:has(.nav-box:active, .nav-dots:active, .nav-divider:active)),
 .full:active:not(:has(img:active, a:active)),
 .small-box:active:not(:has(img:active, a:active)),
-.hero:active:not(:has(img:active)) {
+.hero:active {
     animation: content-wiggle 0.22s ease-in-out infinite;
 }
 
@@ -917,20 +964,6 @@ body:has(#year-2022:target) .year-buttons a[href="#year-2022"],
 body:has(#year-2021:target) .year-buttons a[href="#year-2021"],
 body:has(#year-2020:target) .year-buttons a[href="#year-2020"] {
     animation: year-highlight 2s ease-out;
-}
-
-/* Links (in paragraphs, not page links like buttons) get emphasis when hovered/clicked */
-p a:hover:not(:has(cite)) {
-    transform: translateY(-1px) scale(1.01);
-}
-
-p a:active:not(:has(cite)) {
-    transform: translateY(-2px) scale(1.05) rotate(2deg);
-}
-
-/* Citations glow when hovered over */
-cite:hover {
-    text-shadow: 0 0 3px rgb(255, 243, 24);
 }
 
 /* Sword-cat figure wiggle after the transition frames finish */
@@ -1211,5 +1244,93 @@ cite:hover {
     83.3%,
     100% {
         opacity: 1;
+    }
+}
+
+/*=======================
+  REDUCED MOTION SETTINGS
+  =======================*/
+/* Removes non-essential movement if user has reduced motion enabled in browser settings */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .nav-box:hover,
+    .nav-box:active,
+    .full:hover,
+    .small-box:hover,
+    .hero:hover,
+    .full:active,
+    .small-box:active,
+    .hero:active,
+    .back-to-top:hover,
+    .back-to-top:active,
+    .year-buttons a:hover,
+    .year-buttons a:active,
+    p a:hover:not(:has(cite)),
+    p a:active:not(:has(cite)),
+    .bottom-icon:hover,
+    .bottom-icon:active {
+        transform: none !important;
+    }
+
+    /* Keep the current page nav button visually selected */
+    .nav-box.selected,
+    .nav-box.selected:hover,
+    .nav-box.selected:active {
+        transform: translateY(-2px) scale(1.05) !important;
+    }
+
+    /* Remove click effects from decorative dots/lines */
+    .nav-dots:active {
+        transform: none !important;
+        background-color: #e6e6e6;
+    }
+
+    .nav-divider:active {
+        width: 8px !important;
+        height: 70px !important;
+
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+        margin-left: -10px !important;
+        margin-right: -10px !important;
+
+        background-color: #e6e6e6;
+    }
+
+    .bottom-line:active {
+        transform: none !important;
+        height: 8px !important;
+    }
+
+    /* Show the final sword-cat image instead of animating through frames */
+    .sword-cat-swap .frame-1,
+    .sword-cat-swap:hover .frame-1 {
+        opacity: 0;
+    }
+
+    .sword-cat-swap .sword-cat-frame:not(.frame-final),
+    .sword-cat-swap:hover .sword-cat-frame:not(.frame-final) {
+        opacity: 0;
+    }
+
+    .sword-cat-swap .frame-final,
+    .sword-cat-swap:hover .frame-final {
+        opacity: 1;
+    }
+
+    .sword-cat-swap:hover,
+    .sword-cat-swap:active {
+        animation: none !important;
+        transform: none !important;
     }
 }
